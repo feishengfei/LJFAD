@@ -12,11 +12,14 @@ public class Car extends Vehicle {
 		return numWheels;
 	}
 
+	@Override
+	void describe() {
+		System.out.print("This car is a ");
+		super.describe();
+	}
+
 	public static void main(String[] args) {
 		Car car = new Car("Ford", "Fiesta", 2009, 4);
-		System.out.println("Make = " + car.getMake());
-		System.out.println("Model = " + car.getModel());
-		System.out.println("Year = " + car.getYear());
-		System.out.println("Number of wheels = " + car.getNumWheels());
+		car.describe();
 	}
 }

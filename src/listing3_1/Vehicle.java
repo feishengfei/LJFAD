@@ -19,4 +19,8 @@ public class Vehicle {
 	public int getYear() {
 		return year;
 	}
+	void describe()
+	{
+		System.out.println(year + " " + make + " " + model);
+	}
 }
