@@ -3,28 +3,28 @@ package listing3_1;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LoggingApptCalendar extends ApptCalendar {
+public class LoggingApptCalendar{
 	Logger log;
+	private ApptCalendar apptCal;
 	
-	public LoggingApptCalendar() {
+	public LoggingApptCalendar(ApptCalendar apptCal) {
 		log = Logger.getAnonymousLogger();
+		this.apptCal = apptCal;
 	}
 	
-	@Override
 	public void addAppt(Appt appt) {
 		log.log(Level.INFO, appt.toString());
-		super.addAppt(appt);
+		apptCal.addAppt(appt);
 	}
 
-	@Override
 	public void addAppts(Appt[] appts) {
 		for (int i = 0; i < appts.length; i++)
 			log.log(Level.INFO, appts[i].toString());
-		super.addAppts(appts);
+		apptCal.addAppts(appts);
 	}
 	
 	public static void main(String[] args) {
-		LoggingApptCalendar lapptc = new LoggingApptCalendar();
+		LoggingApptCalendar lapptc = new LoggingApptCalendar(new ApptCalendar());
 		lapptc.addAppts(new Appt[]{
 			new Appt("Working"),
 			new Appt("Eating"),
