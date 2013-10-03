@@ -12,7 +12,7 @@ class Zip {
 
 class Jar extends Zip {
 	@Override
-	JarFile getArchive(String name) throws IOException {
+	ZipFile getArchive(String name) throws IOException {
 		return new JarFile(name);
 	}
 }
@@ -22,7 +22,7 @@ public class Archive {
 			ZipFile zf = new Zip().getArchive(args[1]);
 		}
 		else if (args.length == 2 && args[0].equals("-jar")) {
-			JarFile jf = new Jar().getArchive(args[1]);
+			JarFile jf = (JarFile)new Jar().getArchive(args[1]);
 		}
 	}
 }
