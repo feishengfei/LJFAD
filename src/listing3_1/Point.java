@@ -3,7 +3,7 @@ package listing3_1;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Point {
+public class Point extends Shape{
 	private int x, y;
 
 	public Point(int x, int y) {
@@ -59,7 +59,7 @@ public class Point {
 		System.out.println(p2);
 		System.out.println(p3);
 		
-		Map map = new HashMap();
+		Map<Point, String> map = new HashMap<Point, String>();
 		map.put(p1, "first point");
 		System.out.println(map.get(p1));//Output: first point
 		System.out.println(map.get(new Point(10, 20)));//Output: null
