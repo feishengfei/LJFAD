@@ -1,5 +1,8 @@
 package listing3_1;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Point {
 	private int x, y;
 
@@ -42,6 +45,11 @@ public class Point {
 		System.out.println(p1.equals(null));
 		//Extra test to further prove the instanceof operator's usefullness.
 		System.out.println(p1.equals("abc"));
+		
+		Map map = new HashMap();
+		map.put(p1, "first point");
+		System.out.println(map.get(p1));//Output: first point
+		System.out.println(map.get(new Point(10, 20)));//Output: null
 	}
 	
 }
