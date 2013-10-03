@@ -1,13 +1,13 @@
 package listing4_1;
-abstract class Speaker {
-	abstract void speak();
+interface Speakable {
+	void speak();
 }
 public class ACDemo {
 	public static void main(final String[] args) {
-		new Speaker() {
+		new Speakable() {
 			String msg = (args.length == 1) ? args[0] : "nothing to say";
 			@Override
-			void speak() {
+			public void speak() {
 				System.out.println(msg);
 			}
 		}.speak();
