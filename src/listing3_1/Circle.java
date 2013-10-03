@@ -1,6 +1,6 @@
 package listing3_1;
 
-public class Circle extends Point {
+public class Circle extends Point implements Drawable, Fillable {
 	private int radius;
 	public Circle(int x, int y, int radius) {
 		super(x, y);
@@ -16,17 +16,34 @@ public class Circle extends Point {
 	}
 	
 	@Override
-	void draw() {
+	public void draw(int color) {
 		System.out.println("Circle drawn at " + super.toString() 
-				+ " with radius " + toString());
+				+ " with radius " + toString() 
+				+ " in color " + color);
+	}
+	
+	@Override
+	public void fill(int color) {
+		System.out.println("Circle Fill at " + super.toString() 
+				+ " with radius " + toString() 
+				+ " in color " + color);
 	}
 	
 	public static void main(String[] args) {
-		Point[] points = new Point[] {
-			new Circle(10, 20, 30),
+		//Drawable array
+		Drawable[] drawables = new Drawable[] {
 			new Point(10, 20),
+			new Circle(10, 20, 30),
 		};
-		for (int i = 0; i < points.length; i++)
-			points[i].draw();
+		for (int i = 0; i < drawables.length; i++)
+			drawables[i].draw(Drawable.RED);
+		
+		//Fillable array
+		Fillable[] fillables = new Fillable[] {
+			new Point(10, 20),
+			new Circle(10, 20, 30),
+		};
+		for (int i = 0; i < fillables.length; i++)
+			fillables[i].fill(Fillable.RED);
 	}
 }
