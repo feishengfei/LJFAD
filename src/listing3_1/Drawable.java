@@ -1,9 +1,5 @@
 package listing3_1;
 
-public interface Drawable {
-	int RED = 1;
-	int GREEN = 2;
-	int BLUE = 3;
-	int BLACK = 4;
+public interface Drawable extends Colors{
 	void draw(int color);
 }
