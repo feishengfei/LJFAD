@@ -1,63 +1,48 @@
 package listing4_1;
 
+interface Iterator {
+	boolean hasMoreElements();
+	Object nextElement();
+}
+
 public class ToDoList {
-	private ToDoArray toDoArray;
+	private ToDo[] toDoList;
 	private int index = 0;
-	
-	public ToDoList() {
-		super();
-		toDoArray = new ToDoArray(2);
+	public ToDoList(int size) {
+		toDoList = new ToDo[size];
 	}
 	
-	public boolean hasMoreElements() {
-		return index < toDoArray.size();
-	}
-	
-	public ToDo nextElement() {
-		return toDoArray.get(index++);
+	public Iterator iterator(){
+		class Iter implements Iterator {
+			int index = 0;
+
+			@Override
+			public boolean hasMoreElements() {
+				return index < toDoList.length;
+			}
+
+			@Override
+			public Object nextElement() {
+				return toDoList[index++];
+			}
+		}
+		return new Iter();
 	}
 	
 	public void add(ToDo item) {
-		toDoArray.add(item);
-	}
-
-	private class ToDoArray {
-		private ToDo[] toDoArray;
-		private int index = 0;
-		public ToDoArray(int initSize) {
-			super();
-			toDoArray = new ToDo[initSize];
-		}
-		
-		void add(ToDo item) {
-			if ( index >= toDoArray.length) {
-				ToDo[] temp = new ToDo[toDoArray.length * 2];
-				for (int i = 0; i < toDoArray.length; i++) {
-					temp[i] = toDoArray[i];
-				}
-				toDoArray = temp;
-			}
-			toDoArray[index++] = item;
-		}
-		
-		ToDo get(int i) {
-			return toDoArray[i];
-		}
-		
-		int size() {
-			return index;
-		}
+		toDoList[index++] = item;
 	}
 	
 	public static void main(String[] args) {
-		ToDoList toDoList = new ToDoList();
+		ToDoList toDoList = new ToDoList(5);
 		toDoList.add(new ToDo("#1", "Do laundry."));
 		toDoList.add(new ToDo("#2", "Buy groceries."));
 		toDoList.add(new ToDo("#3", "Vacuum apartment."));
 		toDoList.add(new ToDo("#4", "Write report."));
 		toDoList.add(new ToDo("#5", "Wash car."));
-		while (toDoList.hasMoreElements()) {
-			System.out.println(toDoList.nextElement());
+		Iterator iter = toDoList.iterator();
+		while(iter.hasMoreElements()) {
+			System.out.println(iter.nextElement());
 		}
 	}
 }
