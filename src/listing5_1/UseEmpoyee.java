@@ -4,7 +4,7 @@ public class UseEmpoyee
 {
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
-		Employee emp = new Employee();
+		Employee emp = new Employee("");
 		emp.name = "John Doe";
 	}
 }
