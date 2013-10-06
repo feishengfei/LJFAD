@@ -1,9 +1,9 @@
 package listing5_1;
 
-@Stub("1,10/21/2010,unassigned")
+//@Stub("1,10/21/2010,unassigned")
 public class Deck
 {
-	@Stub("2,10/21/2010,unassigned")
+	//@Stub("2,10/21/2010,unassigned")
 	private Card[] cardsRemaining;
 
 	@Stub("3,10/21/2010,unassigned")
@@ -15,7 +15,7 @@ public class Deck
 	}
 	
 	@Stub("5,10/21/2010,unassigned")
-	public Card[] deal(@Stub("5,10/21/2010,unassigned") int ncards) {
+	public Card[] deal(/*@Stub("5,10/21/2010,unassigned")*/ int ncards) {
 		return null;
 	}
 	
