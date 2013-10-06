@@ -2,11 +2,16 @@ package listing5_1;
 
 public class Deck
 {
-	@Stub(
-		id = 1,
-		dueDate = "10/21/2010"
-	)
+	@Stub(value = "1,10/21/2010,unassigned")
 	public void shuffle() {
 	}
-
+	
+	@Stub("2,10/21/2010,unassigned")
+	public Card[] deal(int ncards) {
+		return null;
+	}
+	
+	class Card {
+		
+	}
 }
