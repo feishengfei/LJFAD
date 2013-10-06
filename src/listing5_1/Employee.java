@@ -10,9 +10,18 @@ public class Employee
 	String firstName;
 	String lastName;
 
+	public Employee(String name) {
+		super();
+		this.name = name;
+	}
+
 	public static void main(String[] args) {
-		Employee emp = new Employee();
+		Employee emp = new Employee("John Doe");
 		emp.name = "John Doe";
+	}
+
+	public String getName() {
+		return name;
 	}
 
 }
