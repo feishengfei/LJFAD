@@ -12,7 +12,7 @@ public class DemoClassCastException
 		employees.add(new Employee("Jane Doe"));
 		Iterator<Employee> iter = employees.iterator();
 		while(iter.hasNext()) {
-			Employee emp = (Employee)iter.next();
+			Employee emp = iter.next();
 			System.out.println(emp.getName());
 		}
 	}
