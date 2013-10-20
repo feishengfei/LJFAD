@@ -16,7 +16,7 @@ public class ReificationDemo
 	public static void main(String[] args) {
 		ColorPoint[] cptArray = new ColorPoint[1];
 		Point[] ptArray = cptArray;
-		ptArray[0] = new Point();
+		//ptArray[0] = new Point();
 	}
 
 }
