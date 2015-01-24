@@ -1,4 +1,15 @@
-package listing6;
+/*
+xzhou@xzhou-air: ~/workspace/LJFAD/src$java -cp logging.jar:. PackageInfo logging 1.0 logging.File
+Name: logging
+Implementation title: Logging Implementation
+Implementation vendor: frankzhou
+Implementation version: 1.0a
+Specification title: Logging Specification
+Specification vendor: frankzhou
+Specification version: 1.0
+Sealed: true
+Compatible with 1.0: true
+*/
 
 public class PackageInfo
 {
@@ -10,6 +21,15 @@ public class PackageInfo
 			System.err.println("usage: java PackageInfo packageName [version]");
 			return ;
 		}
+		
+		if (args.length == 3)
+			try {
+				Class.forName(args[2]);
+			}
+			catch (Exception e) {
+				System.err.println("cannot load " + args[2]);
+				return;
+			}
 		
 		Package pkg = Package.getPackage(args[0]);
 		if (pkg == null)
