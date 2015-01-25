@@ -25,6 +25,31 @@ public class IntegerLongShortByteTest
 		System.out.println("Byte.SIZE: " + Byte.SIZE);
 		System.out.println();
 		
+		System.out.println("Integer:");
+		System.out.println("Integer bin:" + Integer.toBinaryString(255));
+		System.out.println("Integer hex:" + Integer.toHexString(255));
+		System.out.println("Integer oct:" + Integer.toOctalString(255));
+		System.out.println("Integer string:" + Integer.toString(255));
+		
+		System.out.println("Aligning binary string:");
+		System.out.println(toAlignedBinaryString(7, 8));
+		System.out.println(toAlignedBinaryString(255, 16));
+		System.out.println(toAlignedBinaryString(255, 7));
+	}
+
+	static String toAlignedBinaryString(int i, int numBits)
+	{
+		String result = Integer.toBinaryString(i);
+		if (result.length() > numBits)
+		{
+			return null;
+		}
+		int numLeadingZeros = numBits - result.length();
+		String zerosPrefix = "";
+		for (int j = 0; j < numLeadingZeros; j++)
+			zerosPrefix += "0";
+		
+		return zerosPrefix + result;
 	}
 
 }
