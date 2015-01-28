@@ -6,6 +6,7 @@ import java.lang.reflect.Method;
 
 public class ExploreType
 {
+	private static ExploreType et;
 
 	public static void main(String[] args)
 	{
@@ -17,6 +18,9 @@ public class ExploreType
 		
 		try
 		{
+			et = new ExploreType();
+			printClassName(et);
+			
 			Class<?> clazz = Class.forName(args[0]);
 			System.out.println("NAME: " + clazz.getName());
 			System.out.println("PACKAGE: " + clazz.getPackage().getName());
@@ -44,6 +48,11 @@ public class ExploreType
 		{
 			System.err.println("could not locate" + args[0]);
 		}
+	}
+
+	private static void printClassName(Object obj)
+	{
+		System.out.println("The class of " + obj + " is " + obj.getClass().getName());
 	}
 
 }
