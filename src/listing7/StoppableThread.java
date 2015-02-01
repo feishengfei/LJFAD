@@ -2,7 +2,7 @@ package listing7;
 
 public class StoppableThread extends Thread
 {
-	private boolean stopped = false;
+	private volatile boolean stopped = false;
 	
 	@Override
 	public void run()
