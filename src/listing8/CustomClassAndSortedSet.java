@@ -36,6 +36,17 @@ class Employee implements Comparable<Employee>
 	{
 		return name;
 	}
+	
+	
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if(!(obj instanceof Employee))
+			return false;
+		Employee e = (Employee)obj;
+		return e.name.equals(name);
+	}
 
 	@Override
 	public int compareTo(Employee e)
