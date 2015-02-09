@@ -20,39 +20,3 @@ public class CustomClassAndSortedSet
 	}
 
 }
-
-class Employee implements Comparable<Employee>
-{
-	private String name;
-
-	public Employee(String name)
-	{
-		super();
-		this.name = name;
-	}
-
-	@Override
-	public String toString()
-	{
-		return name;
-	}
-	
-	
-
-	@Override
-	public boolean equals(Object obj)
-	{
-		if(!(obj instanceof Employee))
-			return false;
-		Employee e = (Employee)obj;
-		return e.name.equals(name);
-	}
-
-	@Override
-	public int compareTo(Employee e)
-	{
-		return name.compareTo(e.name);
-	}
-	
-	
-}
