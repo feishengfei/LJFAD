@@ -1,11 +1,5 @@
 package listing8;
 
-<<<<<<< HEAD
-public class SortedSetDemo {
-
-	public static void main(String[] args) {
-
-=======
 import java.util.SortedSet;
 import java.util.TreeSet;
 
@@ -50,7 +44,6 @@ public class SortedSetDemo
 		for(String s : sss)
 			System.out.print(s + " ");
 		System.out.println();
->>>>>>> aad110cb7cfd941a55e59fea728cd6eac71597ff
 	}
 
 }
