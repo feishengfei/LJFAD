@@ -1,0 +1,56 @@
+package listing9;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+
+public class ExecutorDemo
+{
+
+	public static void main(String[] args)
+	{
+		ExecutorService executor = Executors.newFixedThreadPool(1);
+		Future<String[]> taskFuture = executor.submit(new Callable<String[]>()
+		{
+
+			@Override
+			public String[] call() throws Exception
+			{
+				int i = 0;
+				Thread.sleep(1000);
+				System.out.println(i++);
+				Thread.sleep(1000);
+				System.out.println(i++);
+				Thread.sleep(1000);
+				System.out.println(i++);
+				Thread.sleep(1000);
+				System.out.println(i++);
+				Thread.sleep(1000);
+				System.out.println(i++);
+				Thread.sleep(1000);
+				System.out.println(i++);
+				return new String[]{"hello", "world"};
+			}
+		});
+		
+		try
+		{
+			String[] entries = taskFuture.get();
+			for(String s:entries)
+				System.out.println("s:"+s);
+		}
+		catch (InterruptedException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		catch (ExecutionException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}
