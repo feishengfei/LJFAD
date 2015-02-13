@@ -20,19 +20,11 @@ public class ExecutorDemo
 			@Override
 			public String[] call() throws Exception
 			{
-				int i = 0;
-				Thread.sleep(1000);
-				System.out.println(i++);
-				Thread.sleep(1000);
-				System.out.println(i++);
-				Thread.sleep(1000);
-				System.out.println(i++);
-				Thread.sleep(1000);
-				System.out.println(i++);
-				Thread.sleep(1000);
-				System.out.println(i++);
-				Thread.sleep(1000);
-				System.out.println(i++);
+				for(int i=10; i>0; i--){
+					Thread.sleep(1000);
+					System.out.println("Counting down " + i);
+				}
+				
 				return new String[]{"hello", "world"};
 			}
 		});
