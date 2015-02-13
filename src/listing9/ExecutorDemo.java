@@ -5,6 +5,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 public class ExecutorDemo
 {
@@ -35,22 +37,29 @@ public class ExecutorDemo
 			}
 		});
 		
-		try
-		{
-			String[] entries = taskFuture.get();
-			for(String s:entries)
-				System.out.println("s:"+s);
+		String[] entries = null;
+		while(null == entries) {
+			try
+			{
+				entries = taskFuture.get(1, TimeUnit.SECONDS);
+			}
+			catch (InterruptedException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			catch (ExecutionException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			catch (TimeoutException e)
+			{
+				System.err.println("not finished yet!!!");
+			}
 		}
-		catch (InterruptedException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		catch (ExecutionException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		for(String s:entries)
+			System.out.println("s:"+s);
 	}
 
 }
