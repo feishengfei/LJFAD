@@ -1,0 +1,7 @@
+Implementation-Title: Logging Implementation
+Implementation-Vendor: frankzhou
+Implementation-Version: 1.0a
+Specification-Title: Logging Specification
+Specification-Vendor: frankzhou
+Specification-Version: 1.0
+Sealed: true
